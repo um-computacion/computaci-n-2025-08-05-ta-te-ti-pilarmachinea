@@ -1,5 +1,4 @@
-class PosOcupadaException(Exception):
-    ...
+from exceptions import PosOcupadaException
 
 class Tablero:
     def __init__(self):
