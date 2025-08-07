@@ -10,3 +10,7 @@ class FichaInvalidaException(Exception):
     """Se lanza cuando se intenta crear un jugador con una ficha que no es 'X' ni '0'."""
     pass
 
+class JuegoTerminadoException(Exception):
+    """Se lanza si se intenta jugar luego de que el juego ya terminó."""
+    pass
+

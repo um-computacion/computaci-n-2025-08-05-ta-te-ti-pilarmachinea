@@ -17,14 +17,20 @@ def main():
     print("Bienvenidos al Tateti")
     nombre1=input("Ingrese el nombre de jugador 1 (X): ")
     nombre2=input("Ingrese el nombre de jugador 2 (O): ")
-    juego = Tateti()
+    juego = Tateti(nombre1, nombre2)
 
     while True:
-        print("Tablero: ")
+        print("Tablero:")
         for fila in juego.tablero.contenedor:
             print(fila)
+
+        if juego.juego_terminado:
+            print("El juego ha terminado.")
+            break
+
         jugador_actual = juego.obtener_jugador_turno()
-        print(f"El jugador actual es {jugador_actual.obtener_nombre()}({jugador_actual.obtener_ficha()})")
+        print(f"El jugador actual es {jugador_actual.obtener_nombre()} ({jugador_actual.obtener_ficha()})")
+
         try:
             fila = pedir_coordenada(jugador_actual.obtener_nombre(), "fila")
             columna = pedir_coordenada(jugador_actual.obtener_nombre(), "columna")
@@ -32,6 +38,5 @@ def main():
         except Exception as e:
             print(e)
         
-
 if __name__ == '__main__':
     main()
