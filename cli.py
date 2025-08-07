@@ -5,13 +5,20 @@ class PosicionInvalidaException(Exception):
 
 def pedir_coordenada(nombre_jugador, tipo):
     try:
-        valor = int(input(f"{nombre_jugador}, ingrese la {tipo} (0 a 2): "))
-        if valor < 0 or valor > 2:
-            raise PosicionInvalidaException("La coordenada debe estar entre 0 y 2.")
-        return valor
+        valor = int(input(f"{nombre_jugador}, ingrese la {tipo} (1 a 3): "))
+        if valor < 1 or valor > 3:
+            raise PosicionInvalidaException("La coordenada debe estar entre 1 y 3.")
+        return valor - 1
     except ValueError:
         raise PosicionInvalidaException("Debes ingresar un número entero válido.")
 
+def mostrar_tablero(tablero):
+    print("\nTablero:")
+    for i, fila in enumerate(tablero.contenedor):
+        linea = " | ".join(casilla if casilla != "" else " " for casilla in fila)
+        print(" " + linea)
+        if i < 2:
+            print("---+---+---")
 
 def main():
     print("Bienvenidos al Tateti")
@@ -20,9 +27,7 @@ def main():
     juego = Tateti(nombre1, nombre2)
 
     while True:
-        print("Tablero:")
-        for fila in juego.tablero.contenedor:
-            print(fila)
+        mostrar_tablero(juego.tablero)
 
         if juego.juego_terminado:
             print("El juego ha terminado.")
@@ -37,6 +42,6 @@ def main():
             juego.ocupar_una_de_las_casillas(fila, columna)
         except Exception as e:
             print(e)
-        
+    
 if __name__ == '__main__':
     main()
