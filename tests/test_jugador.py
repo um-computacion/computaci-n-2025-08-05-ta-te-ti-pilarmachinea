@@ -1,10 +1,6 @@
 import unittest
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from jugador import Jugador
-from exceptions import FichaInvalidaException
+from src.jugador import Jugador
+from src.exceptions import FichaInvalidaException
 
 class TestJugador(unittest.TestCase):
 

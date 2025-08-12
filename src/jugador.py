@@ -1,4 +1,4 @@
-from exceptions import FichaInvalidaException
+from src.exceptions import FichaInvalidaException
 class Jugador:
     def __init__(self, nombre, ficha):
         if ficha not in ["X", "0"]:

@@ -1,6 +1,6 @@
-from tablero import Tablero
-from jugador import Jugador
-from exceptions import JuegoTerminadoException
+from src.tablero import Tablero
+from src.jugador import Jugador
+from src.exceptions import JuegoTerminadoException
 
 class Tateti:
     def __init__(self, nombre_jugador1="Jugador 1", nombre_jugador2="Jugador 2"):

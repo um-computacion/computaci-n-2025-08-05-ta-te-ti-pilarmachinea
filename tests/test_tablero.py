@@ -1,10 +1,6 @@
 import unittest
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from tablero import Tablero
-from exceptions import PosOcupadaException
+from src.tablero import Tablero
+from src.exceptions import PosOcupadaException
 
 class TestTablero(unittest.TestCase):
 
